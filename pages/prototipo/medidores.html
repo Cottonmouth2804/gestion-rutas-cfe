@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Módulo Medidores — Prototipo Gestión de Rutas</title>
+
+  <!-- Bootstrap local -->
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .status-badge { cursor: pointer; }
+    .table-fixed { table-layout: fixed; word-wrap: break-word; }
+  </style>
+</head>
+
+<body class="bg-light">
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand" href="../../index.html">Gestión de Rutas</a>
+      <a href="../prototipo.html" class="btn btn-outline-light btn-sm ms-auto">Volver</a>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <div>
+        <h2 class="h4 mb-0">Módulo: Medidores</h2>
+        <p class="small text-secondary mb-0">Gestión de medidores: alta, edición y estado.</p>
+      </div>
+      <div class="d-flex gap-2">
+        <button class="btn btn-primary" id="btnAddMedidor">+ Agregar Medidor</button>
+        <button class="btn btn-outline-secondary" id="btnImportSample">Cargar muestra</button>
+        <button class="btn btn-outline-success" id="btnExportCSV">Exportar CSV</button>
+      </div>
+    </div>
+
+    <!-- FILTROS -->
+    <div class="row g-2 mb-3">
+      <div class="col-md-4">
+        <input id="searchInput" class="form-control" placeholder="Buscar por número o dirección...">
+      </div>
+      <div class="col-md-3">
+        <select id="filterEstado" class="form-select">
+          <option value="all">Todos los estados</option>
+          <option value="Activo">Activo</option>
+          <option value="En_revision">En revisión</option>
+          <option value="Inhabilitado">Inhabilitado</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <select id="sortBy" class="form-select">
+          <option value="id">Orden (ID)</option>
+          <option value="numero_medidor">Número</option>
+          <option value="estado">Estado</option>
+        </select>
+      </div>
+      <div class="col-md-2 text-end">
+        <span class="text-muted small">Registros: <span id="countLabel">0</span></span>
+      </div>
+    </div>
+
+    <!-- TABLA -->
+    <div class="table-responsive shadow-sm bg-white rounded">
+      <table class="table table-hover table-fixed" id="tblMedidores">
+        <thead class="table-primary">
+          <tr>
+            <th style="width:10%;">ID</th>
+            <th style="width:20%;">Número</th>
+            <th style="width:30%;">Dirección</th>
+            <th style="width:15%;">Estado</th>
+            <th style="width:25%;">Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tblBody"></tbody>
+      </table>
+    </div>
+
+    <!-- PAGINACIÓN -->
+    <div class="d-flex justify-content-end mt-2">
+      <ul class="pagination pagination-sm mb-0" id="pagination"></ul>
+    </div>
+
+  </main>
+
+  <!-- MODAL FORM -->
+  <div class="modal fade" id="modalMedidor" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <form id="formMedidor" class="modal-content">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title" id="modalTitle">Agregar Medidor</h5>
+          <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+          <input type="hidden" id="inputId">
+
+          <div class="mb-3">
+            <label class="form-label">Número de medidor</label>
+            <input id="inputNumero" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Dirección</label>
+            <textarea id="inputDireccion" class="form-control" rows="2"></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Estado</label>
+            <select id="inputEstado" class="form-select">
+              <option value="Activo">Activo</option>
+              <option value="En_revision">En revisión</option>
+              <option value="Inhabilitado">Inhabilitado</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button class="btn btn-primary" type="submit">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../../js/bootstrap.min.js"></script>
+  <script src="../../js/medidores.js"></script>
+
+</body>
+</html>

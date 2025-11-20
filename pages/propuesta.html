@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Propuesta — Gestión de Rutas CFE</title>
+
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <style>
+    .hero {
+      background: linear-gradient(rgba(0, 100, 0, 0.55), rgba(0, 100, 0, 0.55)),
+                  url("../img/propuesta-fondo.jpg") center/cover no-repeat;
+      color: white;
+      padding: 90px 0;
+    }
+    .icon-box {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      text-align: center;
+      transition: 0.25s;
+      border: 1px solid #e5e5e5;
+    }
+    .icon-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+  </style>
+</head>
+
+<body class="bg-light">
+
+<!-- NAV -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+  <div class="container">
+    <a class="navbar-brand" href="../index.html">Gestión de Rutas</a>
+    <a href="../index.html" class="btn btn-light btn-sm ms-auto">Inicio</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero text-center mb-5">
+  <h1 class="fw-bold">Propuesta de Solución</h1>
+  <p class="lead mt-3">Un sistema diseñado para optimizar, organizar y mejorar la gestión de rutas de técnicos.</p>
+  <a href="prototipo.html" class="btn btn-light btn-lg mt-3">Ver prototipo funcional</a>
+</header>
+
+<!-- CONTENIDO -->
+<main class="container pb-5">
+
+  <!-- SECCIÓN: Introducción -->
+  <section class="mb-5 text-center">
+    <h2 class="fw-bold mb-3">¿Qué propongo?</h2>
+    <p class="text-muted mx-auto" style="max-width: 700px;">
+      Desarrollar un sistema de Gestión de Rutas que automatice la asignación,
+      seguimiento y control de actividades de los técnicos, permitiendo una operación
+      más eficiente, transparente y rápida.
+    </p>
+  </section>
+
+  <!-- SECCIÓN: Beneficios -->
+  <section class="mb-5">
+    <h3 class="fw-bold text-center mb-4">Beneficios principales</h3>
+
+    <!--<div class="row g-4">-->
+    <div class="row g-4">
+      <!--<div class="col-md-4">
+        <div class="icon-box shadow-sm">
+          <img src="../img/beneficio1.png" width="70" class="mb-3">
+          <h5 class="fw-bold">Asignación automatizada</h5>
+          <p class="text-muted">
+            El sistema organiza medidores por zona y asigna rutas equitativas a los técnicos.
+          </p>
+        </div>-->
+        <div class="icon-box shadow-sm">
+  <i class="bi bi-diagram-3-fill display-4 text-success mb-3"></i>
+  <h5 class="fw-bold">Asignación automatizada</h5>
+  <p class="text-muted">
+    El sistema organiza medidores por zona y asigna rutas equitativas a los técnicos.
+  </p>
+</div>
+      </div>
+
+      <div class="row g-4">
+        <!--<div class="icon-box shadow-sm">
+          <img src="../img/beneficio2.png" width="70" class="mb-3">
+          <h5 class="fw-bold">Control del avance</h5>
+          <p class="text-muted">
+            Permite visualizar el progreso de cada técnico en tiempo real desde el módulo de reportes.
+          </p>
+        </div>-->
+        <div class="icon-box shadow-sm">
+  <i class="bi bi-speedometer2 display-4 text-primary mb-3"></i>
+  <h5 class="fw-bold">Control del avance</h5>
+  <p class="text-muted">
+    Permite visualizar el progreso de cada técnico en tiempo real desde el módulo de reportes.
+  </p>
+</div>
+      </div>
+
+      <div class="row g-4">
+        <!--<div class="icon-box shadow-sm">
+          <img src="../img/beneficio3.png" width="70" class="mb-3">
+          <h5 class="fw-bold">Cero duplicidad</h5>
+          <p class="text-muted">
+            El sistema valida rutas y medidores para evitar recorridos repetidos o visibles.
+          </p>
+        </div>-->
+        <div class="icon-box shadow-sm">
+  <i class="bi bi-shield-check display-4 text-danger mb-3"></i>
+  <h5 class="fw-bold">Cero duplicidad</h5>
+  <p class="text-muted">
+    El sistema valida rutas y medidores para evitar recorridos repetidos o visibles.
+  </p>
+</div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="my-5">
+
+  <!-- SECCIÓN: Módulos del sistema -->
+<section class="mb-5">
+  <h3 class="fw-bold text-center mb-4">Componentes del Sistema</h3>
+
+  <div class="row g-4">
+
+    <!-- MÓDULO TÉCNICOS -->
+    <div class="col-md-6">
+      <div class="card shadow-sm text-center p-4">
+        
+        <!-- Ícono -->
+        <i class="bi bi-people-fill display-3 text-success mb-3"></i>
+
+        <h5 class="fw-bold">Módulo de Técnicos</h5>
+        <p class="text-muted">
+          Permite registrar, consultar y actualizar el estado de cada técnico,
+          además de gestionar su carga de trabajo.
+        </p>
+      </div>
+    </div>
+
+    <!-- MÓDULO RUTAS -->
+    <div class="col-md-6">
+      <div class="card shadow-sm text-center p-4">
+
+        <!-- Ícono -->
+        <i class="bi bi-geo-alt-fill display-3 text-danger mb-3"></i>
+
+        <h5 class="fw-bold">Módulo de Rutas Programadas</h5>
+        <p class="text-muted">
+          Genera rutas automáticamente y valida duplicidad entre medidores.
+          Ofrece control sobre su estado y asignación.
+        </p>
+      </div>
+    </div>
+
+    <!-- MÓDULO MEDIDORES -->
+    <div class="col-md-6">
+      <div class="card shadow-sm text-center p-4">
+
+        <!-- Ícono -->
+        <i class="bi bi-lightning-fill display-3 text-warning mb-3"></i>
+
+        <h5 class="fw-bold">Módulo de Medidores</h5>
+        <p class="text-muted">
+          Registra información relevante de los medidores para que puedan
+          ser asignados dentro de una ruta.
+        </p>
+      </div>
+    </div>
+
+    <!-- MÓDULO REPORTES -->
+    <div class="col-md-6">
+      <div class="card shadow-sm text-center p-4">
+
+        <!-- Ícono -->
+        <i class="bi bi-bar-chart-line-fill display-3 text-primary mb-3"></i>
+
+        <h5 class="fw-bold">Módulo de Reportes y Análisis</h5>
+        <p class="text-muted">
+          Dashboard visual con métricas, gráficas y exportación de datos
+          para la toma de decisiones.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+  <hr class="my-5">
+
+  <!-- CTA -->
+  <section class="text-center">
+    <h3 class="fw-bold">¿Quieres ver cómo funciona?</h3>
+    <p class="text-muted mb-4">Explora el prototipo interactivo con todos los módulos operativos.</p>
+
+    <a href="prototipo.html" class="btn btn-success btn-lg">Ir al Prototipo</a>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-success text-white text-center py-3">
+  Proyecto – Ingeniería de Software | Morales Jiménez Rodrigo Israel
+</footer>
+
+<script src="../js/bootstrap.min.js"></script>
+
+</body>
+</html>

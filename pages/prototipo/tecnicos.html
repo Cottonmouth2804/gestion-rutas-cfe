@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Módulo Técnicos — Prototipo Gestión de Rutas</title>
+
+  <!-- Bootstrap local -->
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    /* Pequeños ajustes visuales locales para el prototipo */
+    .status-badge { cursor: pointer; }
+    .table-fixed { table-layout: fixed; word-wrap: break-word; }
+    .small-note { font-size: .9rem; color: #666; }
+  </style>
+</head>
+<body class="bg-light">
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <div class="container">
+      <a class="navbar-brand" href="../../index.html">Gestión de Rutas</a>
+      <div class="ms-auto">
+        <a href="../prototipo.html" class="btn btn-outline-light btn-sm">Volver al prototipo</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <div>
+        <h2 class="h4 mb-0">Módulo: Técnicos</h2>
+        <p class="small-note mb-0">Gestiona técnicos lectores: agregar, editar, cambiar estado y asignar rutas (simulado).</p>
+      </div>
+
+      <div class="d-flex gap-2">
+        <button class="btn btn-success" id="btnAdd">+ Agregar técnico</button>
+        <button class="btn btn-outline-secondary" id="btnImportSample">Cargar muestra</button>
+        <button class="btn btn-outline-primary" id="btnExportCSV">Exportar CSV</button>
+      </div>
+    </div>
+
+    <!-- FILTROS / BUSCADOR -->
+    <div class="row g-2 mb-3">
+      <div class="col-md-4">
+        <input id="searchInput" class="form-control" placeholder="Buscar por nombre, apellido o zona...">
+      </div>
+      <div class="col-md-3">
+        <select id="filterStatus" class="form-select">
+          <option value="all">Todos los estados</option>
+          <option value="Disponible">Disponible</option>
+          <option value="En_ruta">En ruta</option>
+          <option value="Inactivo">Inactivo</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <select id="sortBy" class="form-select">
+          <option value="id">Orden (ID)</option>
+          <option value="nombre">Nombre A→Z</option>
+          <option value="estado">Estado</option>
+          <option value="zona_asignada">Zona</option>
+        </select>
+      </div>
+      <div class="col-md-2 text-end">
+        <span class="small-note">Registros: <span id="countLabel">0</span></span>
+      </div>
+    </div>
+
+    <!-- TABLA -->
+    <div class="table-responsive shadow-sm bg-white rounded mb-3">
+      <table class="table table-hover mb-0 table-fixed" id="tblTecnicos">
+        <thead class="table-success">
+          <tr>
+            <th style="width:6%;">ID</th>
+            <th style="width:22%;">Nombre</th>
+            <th style="width:22%;">Apellido</th>
+            <th style="width:14%;">Zona</th>
+            <th style="width:12%;">Estado</th>
+            <th style="width:24%;">Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tblBody"></tbody>
+      </table>
+    </div>
+
+    <!-- PAGINACIÓN -->
+    <div class="d-flex justify-content-between align-items-center">
+      <div>
+        <small class="text-muted">Paginación</small>
+      </div>
+      <nav>
+        <ul class="pagination pagination-sm mb-0" id="pagination"></ul>
+      </nav>
+    </div>
+
+    <!-- RECURSOS / AYUDA 
+    <div class="card mt-4">
+      <div class="card-body">
+        <h6 class="card-title">Recursos</h6>
+        <p class="card-text small">
+          - Plantilla del Diagrama en blanco (DFD) que usaste: 
+          <a href="/mnt/data/Diagrama en blanco.pdf" target="_blank">/mnt/data/Diagrama en blanco.pdf</a>
+          <br>
+          - Indicaciones: los cambios aquí son visuales y se guardan en <code>localStorage</code>.
+        </p>
+      </div>
+    </div>-->
+
+  </main>
+
+  <!-- MODAL: Agregar / Editar Técnico -->
+  <div class="modal fade" id="modalForm" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <form id="formTecnico" class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitle">Agregar Técnico</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="inputId">
+          <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input id="inputNombre" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Apellido</label>
+            <input id="inputApellido" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Zona asignada</label>
+            <input id="inputZona" class="form-control" placeholder="E.g. Centro, Norte">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Estado</label>
+            <select id="inputEstado" class="form-select">
+              <option value="Disponible">Disponible</option>
+              <option value="En_ruta">En_ruta</option>
+              <option value="Inactivo">Inactivo</option>
+            </select>
+          </div>
+          <div class="form-text">Al guardar, los cambios se aplicarán en la tabla (sin backend).</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-success" id="btnSave">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="../../js/bootstrap.min.js"></script>
+  <script src="../../js/tecnicos.js"></script>
+</body>
+</html>

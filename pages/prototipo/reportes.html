@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Reportes — Prototipo Gestión de Rutas</title>
+
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .card-hover:hover { transform: scale(1.01); transition: 0.2s; }
+    .bar-container { height: 18px; background: #eee; border-radius: 4px; }
+    .bar-fill { height: 100%; background: #0d6efd; border-radius: 4px; }
+  </style>
+</head>
+
+<body class="bg-light">
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="../../index.html">Gestión de Rutas</a>
+      <a href="../prototipo.html" class="btn btn-outline-light btn-sm ms-auto">Volver</a>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="h4">Reportes del sistema</h2>
+      <button class="btn btn-success" id="btnExportCSV">Exportar CSV</button>
+    </div>
+
+    <!-- TARJETAS RESUMEN -->
+    <div class="row g-3 mb-4" id="cardsResumen">
+      <!-- Cards dinámicas -->
+    </div>
+
+    <!-- GRAFICAS SIMPLIFICADAS -->
+    <div class="card shadow-sm mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Rutas por estado</h5>
+
+        <div id="graficaEstados">
+          <!-- barras dinámicas -->
+        </div>
+      </div>
+    </div>
+
+    <div class="card shadow-sm mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Actividad por técnico</h5>
+        <p class="text-muted mb-3">Cantidad de rutas asignadas por técnico.</p>
+
+        <div id="graficaTecnicos">
+          <!-- barras dinámicas -->
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="../../js/bootstrap.min.js"></script>
+  <script src="../../js/reportes.js"></script>
+</body>
+</html>

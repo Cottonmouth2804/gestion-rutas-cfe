@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arquitectura - Gestión de Rutas</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-light">
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+  <div class="container">
+    <a class="navbar-brand" href="../index.html">Gestión de Rutas</a>
+  </div>
+</nav>
+
+<section class="container py-5">
+  
+  <!-- TÍTULO -->
+  <div class="text-center mb-5">
+    <h1 class="fw-bold">Arquitectura del Sistema</h1>
+    <p class="text-muted">Vista conceptual del funcionamiento y módulos principales.</p>
+  </div>
+
+  <!-- ARQUITECTURA CONCEPTUAL -->
+  <h3>Arquitectura Conceptual</h3>
+  <p>El sistema se organiza en módulos que permiten planificar, asignar y supervisar rutas de técnicos por zona.</p>
+
+  <!-- Aquí va una imagen -->
+  <!-- Guarda en /img/arquitectura-conceptual.png -->
+  <div class="text-center my-4">
+    <img src="../img/arquitectura-conceptual.png" alt="Arquitectura Conceptual" class="img-fluid rounded shadow-sm">
+    <p class="text-muted mt-2">*Diagrama conceptual del sistema (no técnico)*</p>
+  </div>
+
+
+  <!-- MÓDULOS PRINCIPALES -->
+  <h3 class="mt-5">Módulos del Sistema</h3>
+  <div class="row g-4 mt-2">
+
+    <div class="col-md-4">
+      <div class="card shadow-sm h-100">
+        <!-- imagen -->
+        <img src="../img/modulos/tecnicos.png" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title">Gestión de Técnicos</h5>
+          <p class="card-text">Consulta de técnicos disponibles y registro de su estado.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card shadow-sm h-100">
+        <!-- imagen -->
+        <img src="../img/modulos/medidores.png" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title">Gestión de Medidores</h5>
+          <p class="card-text">Visualización de medidores activos y pendientes por zona.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card shadow-sm h-100">
+        <!-- imagen -->
+        <img src="../img/modulos/rutas.png" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title">Rutas</h5>
+          <p class="card-text">Creación, validación y propuesta de rutas optimizadas.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row g-4 mt-2">
+
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100">
+        <!-- imagen -->
+        <img src="../img/modulos/asignaciones.png" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title">Asignación de Rutas</h5>
+          <p class="card-text">Asignación de rutas al técnico correspondiente.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100">
+        <!-- imagen -->
+        <img src="../img/modulos/reportes.png" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title">Reportes</h5>
+          <p class="card-text">Reportes de cumplimiento y avance por zona o técnico.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  
+
+</section>
+
+<footer class="bg-success text-white text-center py-3">
+  Proyecto – Ingeniería de Software | Morales Jiménez Rodrigo Israel
+</footer>
+
+<script src="../js/bootstrap.min.js"></script>
+</body>
+</html>

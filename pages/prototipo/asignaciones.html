@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Asignaciones — Prototipo Gestión de Rutas</title>
+
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <style>
+    .table-fixed { table-layout: fixed; word-wrap: break-word; }
+    .badge-click { cursor: pointer; }
+    .card-hover:hover { transform: scale(1.01); transition: 0.2s; }
+  </style>
+</head>
+<body class="bg-light">
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <div class="container">
+      <a class="navbar-brand" href="../../index.html">Gestión de Rutas</a>
+      <a href="../prototipo.html" class="btn btn-outline-light btn-sm ms-auto">Volver</a>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <div>
+        <h2 class="h4 mb-0">Asignaciones</h2>
+        <p class="small text-secondary mb-0">Resumen visual de asignación de rutas a técnicos.</p>
+      </div>
+
+      <div class="d-flex gap-2">
+        <button class="btn btn-outline-info" id="btnActualizar">Actualizar</button>
+        <button class="btn btn-outline-success" id="btnExportCSV">Exportar CSV</button>
+      </div>
+    </div>
+
+    <!-- TARJETAS RESUMEN -->
+    <div class="row g-3 mb-4" id="cardsResumen">
+      <!-- Tarjetas dinámicas -->
+    </div>
+
+    <!-- BUSCADOR Y FILTROS -->
+    <div class="row g-2 mb-3">
+      <div class="col-md-6">
+        <input id="searchBox" class="form-control" placeholder="Buscar técnico o zona...">
+      </div>
+      <div class="col-md-4">
+        <select id="filterEstado" class="form-select">
+          <option value="all">Todos los estados</option>
+          <option value="Pendiente">Pendiente</option>
+          <option value="En_ejecucion">En ejecución</option>
+          <option value="Completada">Completada</option>
+        </select>
+      </div>
+      <div class="col-md-2 d-flex align-items-center justify-content-end">
+        <span class="text-muted small">Registros: <span id="countLabel">0</span></span>
+      </div>
+    </div>
+
+    <!-- TABLA -->
+    <div class="table-responsive shadow-sm bg-white rounded">
+      <table class="table table-hover table-fixed">
+        <thead class="table-info">
+          <tr>
+            <th style="width:10%;">ID Ruta</th>
+            <th style="width:25%;">Técnico</th>
+            <th style="width:25%;">Medidores</th>
+            <th style="width:15%;">Fecha</th>
+            <th style="width:10%;">Estado</th>
+            <th style="width:15%;">Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tblBody"></tbody>
+      </table>
+    </div>
+
+    <!-- PAGINACIÓN -->
+    <div class="text-end mt-2">
+      <ul class="pagination pagination-sm mb-0" id="pagination"></ul>
+    </div>
+
+  </main>
+
+  <!-- MODAL DETALLES -->
+  <div class="modal fade" id="modalDetalles" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <div class="modal-header bg-info text-white">
+          <h5 class="modal-title">Detalles del Técnico</h5>
+          <button class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body" id="modalBodyDetalles">
+          Cargando...
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/bootstrap.min.js"></script>
+  <script src="../../js/asignaciones.js"></script>
+</body>
+</html>
