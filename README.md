@@ -13,7 +13,7 @@ El sitio incluye:
 
 ## 🚀 **Enlace al sitio (GitHub Pages)**
  
-[https://TU-USUARIO.github.io/gestion-rutas-cfe/](https://cottonmouth2804.github.io/gestion-rutas-cfe)
+https://cottonmouth2804.github.io/gestion-rutas-cfe
 
 
 ## 📌 **Descripción general**
