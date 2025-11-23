@@ -104,5 +104,14 @@ Solo abre el link público:
 
 https://cottonmouth2804.github.io/gestion-rutas-cfe
 
+Autor
+
+Morales Jiménez Rodrigo Israel - Alumno de Fes Acátlan
+Proyecto académico de Ingeniería de Software
+Grupo 1552
+
+📜 Licencia
+
+Este proyecto es de uso académico y no representa ningún sistema oficial de CFE.
 
 
